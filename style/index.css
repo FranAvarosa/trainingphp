@@ -1,0 +1,12 @@
+body{
+    display:grid;
+    place-items: center;
+}
+
+.error{
+    color: red;
+}
+
+#showall{
+    margin-top: 50px;
+}
