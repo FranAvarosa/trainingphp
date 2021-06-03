@@ -2,7 +2,7 @@
 
 $error = null;
 
-if (isset($_POST) && !empty($_POST)){
+/*if (isset($_POST) && !empty($_POST)){
     $error = [];
 
     if (empty($_POST['superuser_email']) or filter_var($_POST['superuser_email'], FILTER_VALIDATE_EMAIL === FALSE)){
@@ -11,10 +11,10 @@ if (isset($_POST) && !empty($_POST)){
     if (empty($_POST['superuser_password']) && empty($_POST['superuser_passwordconfirm']) or $_POST['superuser_password'] !== $_POST['superuser_passwordconfirm']){
         $error['password'] = "mot de passe ne correspond pas à la confirmation";
     }
-    if (strlen($_POST['superuser_password']) < 4 or strlen($_POST['superuser_password']) > 30){
+    if (strlen($_POST['superuser_password']) < 4 && strlen($_POST['superuser_password']) > 30){
         $error['password2'] = "Votre mot de passe doit etre de au moins 4 caractere et pas plus que 30";
     }
-    if (strlen($_POST['superuser_pseudo']) < 3 or strlen($_POST['superuser_pseudo']) > 30){
+    if (strlen($_POST['superuser_pseudo']) < 3 && strlen($_POST['superuser_pseudo']) > 30){
         $error['pseudo'] = "Votre pseudo doit etre de au moins 3 caractere et pas plus que 30";
     }
 
@@ -37,7 +37,7 @@ if (isset($_POST) && !empty($_POST)){
         else {
             $error = 'Une erreur est survenue, compte non créer !!';
         }
-        
+
          echo '<br>'.$newsletter;
     }
-}
+}*/

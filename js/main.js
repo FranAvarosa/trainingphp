@@ -7,15 +7,20 @@ $(document).ready(function(){
         let username = $(this).val();
         $.ajax({
             type: 'POST',
-            URL: '/check.php',
+            url: '/check.php',
             data: {
                 pseudo: username
             },
             async: true,
             success: function(data)
-            {
-                console.log(data)
-            }
+            { 
+                if (data == 'true') {
+                    $('#superuser_pseudo').addClass('is-invalid');
+                    //$('#nameHelp').text('Le pseudo est déjà utilisé !!');
+                } else {
+                    $('#superuser_pseudo').addClass('is-valid');
+                };
+            } 
         })
     });
 
@@ -26,11 +31,14 @@ $(document).ready(function(){
             async: true,
             success: function(data)
             {
-                let obj = jQuery.parseJSON(data)
-                $('#reponse').text(obj.pseudo)
+                let obj = jQuery.parseJSON(data);
+                let user = '';
+                for(i=0; i< obj.length; i++){
+                    user += 'pseudo: '+ obj[i].pseudo+'<br/>';
+                    user += 'email: '+ obj[i].email+'<br/>';
+                }
+                $('#reponse').html(user);
             }
-        })
+        });
     });
 });
-
-

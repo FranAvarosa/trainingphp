@@ -1,13 +1,16 @@
 <?php
-require_once "../config/connect.php" ;
-require_once "../config/configuration.php";
+require_once "config/connect.php" ;
+require_once "config/configuration.php";
 
+$result=[];
 
-
-$sql = "SELECT * FROM supersuser";
+$sql = "SELECT * FROM superuser";
         if($user = $mysqli->query($sql)){
             if($user->num_rows > 0){
-            echo json_encode($user->fetch_assoc());
+                while($row = $user->fetch_assoc()){
+                    array_push($result, $row);
+                }
+                echo json_encode($result);
             }
             else{
             echo "pas de resultat";
